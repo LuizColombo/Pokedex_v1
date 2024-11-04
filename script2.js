@@ -7,7 +7,7 @@ document.getElementById('poke_name').addEventListener('keyup', function () {
     clearTimeout(debounceTimeout);
 
     debounceTimeout = setTimeout(function () {
-        let name_id_filter = document.getElementById('poke_name').value;
+        let name_id_filter = document.getElementById('poke_name').value.trim().toLowerCase();
 
         if (name_id_filter !== "") {
             document.getElementById('btn1').onclick = function () {
@@ -25,7 +25,7 @@ document.getElementById('poke_type').addEventListener('keyup', function () {
     clearTimeout(debounceTimeout);
 
     debounceTimeout = setTimeout(function () {
-        let type_id_filter = document.getElementById('poke_type').value;
+        let type_id_filter = document.getElementById('poke_type').value.trim().toLowerCase();
 
         if (type_id_filter !== "") {
             document.getElementById('btn1').onclick = function () {
@@ -41,7 +41,7 @@ document.getElementById('poke_habitat').addEventListener('keyup', function () {
     clearTimeout(debounceTimeout);
 
     debounceTimeout = setTimeout(function () {
-        let habitat_name_id = document.getElementById('poke_habitat').value;
+        let habitat_name_id = document.getElementById('poke_habitat').value.trim().toLowerCase();
 
         if (habitat_name_id !== "") {
             document.getElementById('btn1').onclick = function () {
@@ -131,7 +131,6 @@ function loadPreviousPokemon() {
 }
 
 function loadPokemon_fragment(name_id_filter) {
-    name_id_filter = document.getElementById('poke_name').value.trim().toLowerCase();
 
     if (name_id_filter === "") {
         document.getElementById("container_pokemon_name").style.display = "none";
