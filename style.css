@@ -201,27 +201,62 @@ body {
 }
 
 @media (max-width: 600px) {
+    /* Centraliza e ajusta a largura do filtro e outros contêineres */
+    #filter,
+    #container_pokemon_name,
+    #container_pokemon_type,
+    #container_pokemon_habitat,
+    #container_pokemon_name_fragment {
+        width: 90%; /* Ajuste dinâmico da largura */
+        margin: 10px auto;
+    }
 
-    #filter h1,
-    #container_pokemon_type h2,
-    #container_pokemon_name_fragment h2 {
-        font-size: 12px;
-        /* Reduz o tamanho da fonte para melhor legibilidade */
+    /* Ajusta a largura dos campos de input para ocupar toda a largura do filtro */
+    .input_filtro_pokemon {
+        width: 100%;
+        padding: 8px;
+        font-size: 12px; /* Fonte um pouco menor */
+    }
+
+    #background_total img {
+        height: 70px;
+    }
+
+    #background_total {
+        padding: 10px;
+    }
+
+    /* Ajusta os botões de navegação */
+    .button_container {
+        position: static; /* Remove a posição absoluta */
+        display: flex;
+        justify-content: space-between;
+        gap: 10px;
+        padding: 10px;
     }
 
     .commands {
-        padding: 8px 15px;
-        font-size: 13px;
-    }
-
-    #previous,
-    #next {
-        font-size: 12px;
-    }
-
-    /* Aumenta o espaço ao redor do botão */
-    #btn1 {
-        padding: 5px 8px;
+        flex: 1;
+        padding: 8px;
         font-size: 13px;
     }
 }
+
+@media (max-width: 400px) {
+    #filter h1,
+    #container_pokemon_type h2,
+    #container_pokemon_name_fragment h2 {
+        font-size: 10px;
+    }
+
+    .commands {
+        padding: 5px 10px;
+        font-size: 11px;
+    }
+
+    #btn1 {
+        padding: 4px 6px;
+        font-size: 11px;
+    }
+}
+
