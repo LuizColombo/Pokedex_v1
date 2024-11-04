@@ -3,6 +3,10 @@ let id_type = 0;
 let id_habitat = 0;
 let debounceTimeout;
 
+let currentPage = 1;
+const pokemonsPerPage = 10;
+
+
 document.getElementById('poke_name').addEventListener('keyup', function () {
     clearTimeout(debounceTimeout);
 
@@ -310,11 +314,29 @@ function loadHabitat(habitat_name_id) {
 }
 
 function loadNextHabitat() {
-
+    habitat_name_id = "";
+    document.getElementById('poke_habitat').value = "";
+    id_habitat++;
+    if (id_habitat >= 9) {
+        id_habitat = 9;
+        loadHabitat(id_habitat);
+    }
+    else {
+        loadHabitat(id_habitat);
+    }
 }
 
 function loadPreviousHabitat() {
-
+    habitat_name_id = "";
+    document.getElementById('poke_habitat').value = "";
+    id_habitat--;
+    if (id_habitat <= 0) {
+        id_habitat = 1;
+        loadHabitat(id_habitat);
+    }
+    else {
+        loadHabitat(id_habitat);
+    }
 }
 
 document.getElementById('next').onclick = loadNextPokemon;
