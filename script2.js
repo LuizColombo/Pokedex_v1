@@ -2,9 +2,6 @@ let id_name = 0;
 let id_type = 0;
 let id_habitat = 0;
 let debounceTimeout;
-let currentPage = 1;
-const pokemonsPerPage = 10;
-
 
 document.getElementById('poke_name').addEventListener('keyup', function () {
     clearTimeout(debounceTimeout);
@@ -161,11 +158,9 @@ function loadPokemon_fragment(name_id_filter) {
     fetch(url_pokemon)
         .then((response) => response.json())
         .then((data) => {
-            let found = false;
 
             data.results.forEach((pokemon) => {
                 if (pokemon.name === name_id_filter) {
-                    found = true;
                     loadpokemon_name(name_id_filter);
                 }
                 else if (pokemon.name.includes(name_id_filter)) {
@@ -181,6 +176,7 @@ function loadPokemon_fragment(name_id_filter) {
             if (!found && ul.children.length > 0) {
                 document.getElementById("container_pokemon_name_fragment").style.display = "block";
             }
+
         })
         .catch((error) => {
             console.error("Erro:", error);
