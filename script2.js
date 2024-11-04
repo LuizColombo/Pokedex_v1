@@ -2,7 +2,6 @@ let id_name = 0;
 let id_type = 0;
 let id_habitat = 0;
 let debounceTimeout;
-
 let currentPage = 1;
 const pokemonsPerPage = 10;
 
