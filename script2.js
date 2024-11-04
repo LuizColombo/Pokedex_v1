@@ -1,5 +1,6 @@
 let id_name = 0;
 let id_type = 0;
+let id_habitat = 0;
 let debounceTimeout;
 
 document.getElementById('poke_name').addEventListener('keyup', function () {
@@ -36,6 +37,22 @@ document.getElementById('poke_type').addEventListener('keyup', function () {
     }, 500);
 });
 
+document.getElementById('poke_habitat').addEventListener('keyup', function () {
+    clearTimeout(debounceTimeout);
+
+    debounceTimeout = setTimeout(function () {
+        let habitat_name_id = document.getElementById('poke_habitat').value;
+
+        if (habitat_name_id !== "") {
+            document.getElementById('btn1').onclick = function () {
+                loadHabitat(habitat_name_id);
+            };
+        } else {
+            document.getElementById('btn1').onclick = null;
+        }
+    }, 500);
+});
+
 function loadpokemon_name(name_id_filter) {
     document.getElementById("container_pokemon_name_fragment").style.display = "none";
     document.getElementById("container_pokemon_type").style.display = "none";
@@ -46,6 +63,8 @@ function loadpokemon_name(name_id_filter) {
     document.getElementById("next").style.display = "block";
     document.getElementById("previous_t").style.display = "none";
     document.getElementById("next_t").style.display = "none";
+    document.getElementById("previous_h").style.display = "none";
+    document.getElementById("next_h").style.display = "none";
 
     let url_pokemon = `https://pokeapi.co/api/v2/pokemon/${name_id_filter}`;
     let url_color = `https://pokeapi.co/api/v2/pokemon-species/${name_id_filter}`
@@ -128,6 +147,8 @@ function loadPokemon_fragment(name_id_filter) {
     document.getElementById("next").style.display = "block";
     document.getElementById("previous_t").style.display = "none";
     document.getElementById("next_t").style.display = "none";
+    document.getElementById("previous_h").style.display = "none";
+    document.getElementById("next_h").style.display = "none";
 
     url_pokemon = 'https://pokeapi.co/api/v2/pokemon?limit=1000';
 
@@ -174,6 +195,8 @@ function loadType(type_id_filter) {
     document.getElementById("next").style.display = "none";
     document.getElementById("previous_t").style.display = "block";
     document.getElementById("next_t").style.display = "block";
+    document.getElementById("previous_h").style.display = "none";
+    document.getElementById("next_h").style.display = "none";
 
     let url_type = `https://pokeapi.co/api/v2/type/${type_id_filter}`;
 
@@ -237,8 +260,68 @@ function loadPreviousType() {
     }
 }
 
+function loadHabitat(habitat_name_id) {
+    document.getElementById("container_pokemon_name_fragment").style.display = "none";
+    document.getElementById("container_pokemon_type").style.display = "none";
+    document.getElementById("container_pokemon_habitat").style.display = "block";
+    document.getElementById("container_pokemon_name").style.display = "none";
+
+    document.getElementById("previous").style.display = "none";
+    document.getElementById("next").style.display = "none";
+    document.getElementById("previous_t").style.display = "none";
+    document.getElementById("next_t").style.display = "none";
+    document.getElementById("previous_h").style.display = "block";
+    document.getElementById("next_h").style.display = "block";
+
+    let url_habitat = `https://pokeapi.co/api/v2/pokemon-habitat/${habitat_name_id}`;
+
+    const ul = document.getElementById("pokemon_list_habitat");
+    ul.innerHTML = ""; // Limpa a lista antes de adicionar novos itens
+
+    fetch(url_habitat)
+        .then((response) => {
+            return response.json();
+        })
+        .then((data) => {
+            console.clear;
+            console.log(data);
+
+            id_habitat = data['id'];
+            console.log(id_habitat);
+
+            document.getElementById('lista_habitat').innerHTML = "Pokémons do habitat: " + data['name'];
+
+            data.pokemon_species.forEach((pokemonObj) => {
+                const li = document.createElement("li");
+                li.textContent = pokemonObj.name;
+                li.id = `${pokemonObj.name}`;
+
+                li.onclick = function () {
+                    loadpokemon_name(li.id);
+                }
+                ul.appendChild(li);
+            });
+        })
+        .catch((erro) => {
+            console.log("Erro: " + erro)
+        });
+
+    document.getElementById('poke_habitat').value = "";
+}
+
+function loadNextHabitat() {
+
+}
+
+function loadPreviousHabitat() {
+
+}
+
 document.getElementById('next').onclick = loadNextPokemon;
 document.getElementById('previous').onclick = loadPreviousPokemon;
 
 document.getElementById('next_t').onclick = loadNextType;
 document.getElementById('previous_t').onclick = loadPreviousType;
+
+document.getElementById('next_h').onclick = loadNextHabitat;
+document.getElementById('previous_h').onclick = loadPreviousHabitat;

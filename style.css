@@ -2,7 +2,6 @@
     box-sizing: border-box;
 }
 
-
 body {
     text-align: center;
     background-color: black;
@@ -273,13 +272,65 @@ body {
     /* Efeito de expansão ao passar o mouse */
 }
 
+#container_pokemon_habitat {
+    max-height: 500px;
+    overflow-y: auto;
+    width: 210px;
+    background-color: rgb(53, 151, 231);
+    border-radius: 10px;
+    box-shadow: 6px 8px 2px black;
+    margin: 20px 10px 10px 155px;
+    padding: 1px;
+    position: relative;
+}
+
+#container_pokemon_habitat h2 {
+    text-align: center;
+    font-size: 16px;
+    color: black;
+    font-style: oblique;
+    font-weight: 700;
+    background-color: rgb(247, 228, 125);
+    border-radius: 10px;
+    padding: 5px;
+    margin-top: 15px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+#pokemon_list_habitat {
+    max-height: 300px;
+    overflow-y: scroll;
+    padding: 15px;
+    margin: 5px;
+    list-style-type: none;
+}
+
+#pokemon_list_habitat li {
+    padding: 8px;
+    background-color: white;
+    margin: 5px 0 0 0;
+    border-radius: 10px;
+    box-shadow: 3px 3px 1px black;
+    scrollbar-width: none;
+    cursor: pointer;
+}
+
+#pokemon_list_habitat::-webkit-scrollbar {
+    display: none;
+    /* Chrome, Safari e outros navegadores baseados em WebKit */
+}
+
+
 /* Itens da lista */
 #pokemon_list li,
+#pokemon_list_habitat,
 #pokemon_name_list li {
     transition: box-shadow 0.3s ease, transform 0.2s ease;
 }
 
 #pokemon_list li:hover,
+#pokemon_list_habitat,
 #pokemon_name_list li:hover {
     box-shadow: 5px 5px 5px black;
     transform: scale(1.02);
@@ -287,11 +338,13 @@ body {
 }
 
 #pokemon_list::-webkit-scrollbar,
+#pokemon_list_habitat::-webkit-scrollbar,
 #pokemon_name_list::-webkit-scrollbar {
     width: 6px;
 }
 
 #pokemon_list::-webkit-scrollbar-thumb,
+#pokemon_list_habitat::-webkit-scrollbar-thumb,
 #pokemon_name_list::-webkit-scrollbar-thumb {
     background-color: rgb(53, 151, 231);
     border-radius: 10px;
