@@ -74,7 +74,9 @@ body {
     border-radius: 10px;
 }
 
-#container_pokemon_type, #container_pokemon_habitat, #container_pokemon_name_fragment {
+#container_pokemon_type,
+#container_pokemon_habitat,
+#container_pokemon_name_fragment {
     max-height: 500px;
     overflow-y: auto;
     width: 210px;
@@ -86,8 +88,8 @@ body {
     position: relative;
 }
 
-#container_pokemon_type h2, 
-#container_pokemon_habitat h2, 
+#container_pokemon_type h2,
+#container_pokemon_habitat h2,
 #container_pokemon_name_fragment h2 {
     text-align: center;
     font-size: 16px;
@@ -102,8 +104,8 @@ body {
     margin-right: 10px;
 }
 
-#pokemon_list, 
-#pokemon_list_habitat, 
+#pokemon_list,
+#pokemon_list_habitat,
 #pokemon_name_list {
     max-height: 300px;
     overflow-y: scroll;
@@ -112,8 +114,8 @@ body {
     list-style-type: none;
 }
 
-#pokemon_list li, 
-#pokemon_list_habitat li, 
+#pokemon_list li,
+#pokemon_list_habitat li,
 #pokemon_name_list li {
     padding: 8px;
     background-color: white;
@@ -133,7 +135,7 @@ body {
     /* Pequeno aumento para dar destaque */
 }
 
-#pokemon_list::-webkit-scrollbar, 
+#pokemon_list::-webkit-scrollbar,
 #pokemon_list_habitat::-webkit-scrollbar,
 #pokemon_name_list::-webkit-scrollbar {
     display: none;
@@ -150,13 +152,17 @@ body {
     cursor: pointer;
 }
 
-#previous, #previous_t, #previous_h {
+#previous,
+#previous_t,
+#previous_h {
     position: absolute;
     bottom: 20px;
     left: 10px;
 }
 
-#next, #next_t, #next_h  {
+#next,
+#next_t,
+#next_h {
     position: absolute;
     bottom: 20px;
     right: 35px;
@@ -201,13 +207,15 @@ body {
 }
 
 @media (max-width: 600px) {
+
     /* Centraliza e ajusta a largura do filtro e outros contêineres */
     #filter,
     #container_pokemon_name,
     #container_pokemon_type,
     #container_pokemon_habitat,
     #container_pokemon_name_fragment {
-        width: 90%; /* Ajuste dinâmico da largura */
+        width: 90%;
+        /* Ajuste dinâmico da largura */
         margin: 10px auto;
     }
 
@@ -215,7 +223,8 @@ body {
     .input_filtro_pokemon {
         width: 100%;
         padding: 8px;
-        font-size: 12px; /* Fonte um pouco menor */
+        font-size: 12px;
+        /* Fonte um pouco menor */
     }
 
     #background_total img {
@@ -228,7 +237,8 @@ body {
 
     /* Ajusta os botões de navegação */
     .button_container {
-        position: static; /* Remove a posição absoluta */
+        position: static;
+        /* Remove a posição absoluta */
         display: flex;
         justify-content: space-between;
         gap: 10px;
@@ -242,21 +252,69 @@ body {
     }
 }
 
-@media (max-width: 400px) {
+@media (max-width: 500px) {
+
     #filter h1,
     #container_pokemon_type h2,
     #container_pokemon_name_fragment h2 {
-        font-size: 10px;
+        font-size: 13px;
+        font-style: normal;
+    }
+
+    /* Centraliza e ajusta a largura do filtro e outros contêineres */
+    #filter,
+    #container_pokemon_name,
+    #container_pokemon_type,
+    #container_pokemon_habitat,
+    #container_pokemon_name_fragment {
+        width: 90%;
+        /* Ajuste dinâmico da largura */
+        margin: 10px auto;
+    }
+
+    #container_pokemon_type,
+    #container_pokemon_habitat,
+    #container_pokemon_name_fragment {
+        width: 90%;
+        margin: 10px auto;
+        height: 42%;
+    }
+
+    .pokemon_name {
+        width: 60%;
+        margin: 10px auto;
+    }
+
+    /* Ajusta a largura dos campos de input para ocupar toda a largura do filtro */
+    .input_filtro_pokemon {
+        width: 100%;
+        padding: 8px;
+        font-size: 12px;
+        /* Fonte um pouco menor */
+    }
+
+    #background_total img {
+        height: 80px;
+    }
+
+    #background_total {
+        padding: 10px;
+        height: 680px;
+    }
+
+    /* Ajusta os botões de navegação */
+    .button_container {
+        position: static;
+        /* Remove a posição absoluta */
+        display: flex;
+        justify-content: space-between;
+        gap: 10px;
+        padding: 10px;
     }
 
     .commands {
-        padding: 5px 10px;
-        font-size: 11px;
-    }
-
-    #btn1 {
-        padding: 4px 6px;
-        font-size: 11px;
+        flex: 1;
+        padding: 8px;
+        font-size: 13px;
     }
 }
-
