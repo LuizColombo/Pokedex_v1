@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Pokedex</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div id="background_total">
+        <img src="./imgs/pngegg.png">
+
+        <div id="filter">
+            <h1>Escolha um campo para filtrar</h1>
+            <input type="text" id="poke_name" class="input_filtro_pokemon" placeholder="   name">
+            <input type="text" id="poke_type" class="input_filtro_pokemon" placeholder="   type">
+            <input type="text" id="poke_habitat" class="input_filtro_pokemon" placeholder="   habitat">
+            <br><br>
+            <button id="btn1">Carregar</button>
+        </div>
+
+        <div id="container_pokemon_name" style="display: none;">
+            <h2 id="name_n" class="pokemon_name">_naaaame_</h2>
+            <img id="picture_n">
+            <h3 id="id_n" class="pokemon_name">_ID_</h3>
+            <h3 id="type_n" class="pokemon_name">_Type_</h3>
+            <h3 id="hp_n" class="pokemon_name">_Hp_</h3>
+            <h3 id="attack_n" class="pokemon_name">_Attack_</h3>
+        </div>
+
+        <div id="container_pokemon_name_fragment" style="display: none;">
+            <h2 id="lista_pokemon_name">_Lista_</h2>
+            <ul id="pokemon_name_list">
+                <!-- Itens da lista serão adicionados aqui -->
+            </ul>
+        </div>
+
+        <div id="container_pokemon_type" style="display: none;">
+            <h2 id="lista_tipo">_Lista_</h2>
+            <ul id="pokemon_list">
+                <!-- Itens da lista serão adicionados aqui -->
+            </ul>
+        </div>
+
+        <div id="container_pokemon_habitat" style="display: none;">
+            <h2 id="name_h">_name_</h2>
+            <img id="picture_h">
+            <h3 id="id_h">_ID_</h3>
+            <h3 id="habitat_h">_Habitaaaaaaat_</h3>
+            <h3 id="type_h">_Type_</h3>
+        </div>
+
+        <div class="button_container">
+            <button type="button" id="previous" class="commands" style="display: block;">Previous</button>
+            <button type="button" id="next" class="commands" style="display: block;">Next</button>
+
+            <button type="button" id="previous_t" class="commands" style="display: none;">Previous</button>
+            <button type="button" id="next_t" class="commands" style="display: none;">Next</button>
+        </div>
+    </div>
+
+    <script src="script2.js" async defer></script>
+</body>
+
+</html>
