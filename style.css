@@ -10,21 +10,14 @@ body {
 #background_total {
     position: relative;
     overflow: hidden;
-    /* height: 700px; */
-    /* width: 500px; */
     background-color: brown;
     border-radius: 20px;
     margin: 0 auto;
-
     width: 90%;
-    /* Reduz a largura em telas menores */
     max-width: 500px;
     height: auto;
-    /* Remove a altura fixa */
     padding: 20px;
-    /* Espaço extra para evitar overflow */
 }
-
 
 #background_total img {
     height: 100px;
@@ -48,15 +41,6 @@ body {
     background-color: rgb(247, 228, 125);
     border-radius: 9px;
     padding: 5px 5px;
-}
-
-#btn1 {
-    border-radius: 10px;
-    padding: 5px 10px;
-    font-style: oblique;
-    font-weight: 700;
-    background-color: rgb(247, 228, 125);
-    cursor: pointer;
 }
 
 .input_filtro_pokemon {
@@ -90,7 +74,7 @@ body {
     border-radius: 10px;
 }
 
-#container_pokemon_type {
+#container_pokemon_type, #container_pokemon_habitat, #container_pokemon_name_fragment {
     max-height: 500px;
     overflow-y: auto;
     width: 210px;
@@ -102,55 +86,8 @@ body {
     position: relative;
 }
 
-#container_pokemon_type h2 {
-    text-align: center;
-    font-size: 16px;
-    color: black;
-    font-style: oblique;
-    font-weight: 700;
-    background-color: rgb(247, 228, 125);
-    border-radius: 10px;
-    padding: 5px;
-    margin-top: 15px;
-    margin-left: 10px;
-    margin-right: 10px;
-}
-
-#pokemon_list {
-    max-height: 300px;
-    overflow-y: scroll;
-    padding: 15px;
-    margin: 5px;
-    list-style-type: none;
-}
-
-#pokemon_list li {
-    padding: 8px;
-    background-color: white;
-    margin: 5px 0 0 0;
-    border-radius: 10px;
-    box-shadow: 3px 3px 1px black;
-    scrollbar-width: none;
-    cursor: pointer;
-}
-
-#pokemon_list::-webkit-scrollbar {
-    display: none;
-    /* Chrome, Safari e outros navegadores baseados em WebKit */
-}
-
-#container_pokemon_name_fragment {
-    max-height: 500px;
-    overflow-y: auto;
-    width: 210px;
-    background-color: rgb(53, 151, 231);
-    border-radius: 10px;
-    box-shadow: 6px 8px 2px black;
-    margin: 20px 10px 10px 155px;
-    padding: 1px;
-    position: relative;
-}
-
+#container_pokemon_type h2, 
+#container_pokemon_habitat h2, 
 #container_pokemon_name_fragment h2 {
     text-align: center;
     font-size: 16px;
@@ -165,6 +102,8 @@ body {
     margin-right: 10px;
 }
 
+#pokemon_list, 
+#pokemon_list_habitat, 
 #pokemon_name_list {
     max-height: 300px;
     overflow-y: scroll;
@@ -173,6 +112,8 @@ body {
     list-style-type: none;
 }
 
+#pokemon_list li, 
+#pokemon_list_habitat li, 
 #pokemon_name_list li {
     padding: 8px;
     background-color: white;
@@ -181,29 +122,41 @@ body {
     box-shadow: 3px 3px 1px black;
     scrollbar-width: none;
     cursor: pointer;
+    transition: box-shadow 0.3s ease, transform 0.2s ease;
 }
 
+#pokemon_list li:hover,
+#pokemon_list_habitat li:hover,
+#pokemon_name_list li:hover {
+    box-shadow: 5px 5px 5px black;
+    transform: scale(1.02);
+    /* Pequeno aumento para dar destaque */
+}
+
+#pokemon_list::-webkit-scrollbar, 
+#pokemon_list_habitat::-webkit-scrollbar,
 #pokemon_name_list::-webkit-scrollbar {
     display: none;
     /* Chrome, Safari e outros navegadores baseados em WebKit */
 }
 
-#container_pokemon_habitat {
-    width: 200px;
+#btn1 {
     border-radius: 10px;
-    box-shadow: 6px 8px 2px black;
-    margin: 20px 10px 10px 155px;
-    padding: 5px;
-    position: relative;
+    padding: 5px 10px;
+    font-style: oblique;
+    font-weight: 700;
+    background-color: rgb(247, 228, 125);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    cursor: pointer;
 }
 
-#previous {
+#previous, #previous_t, #previous_h {
     position: absolute;
     bottom: 20px;
     left: 10px;
 }
 
-#next {
+#next, #next_t, #next_h  {
     position: absolute;
     bottom: 20px;
     right: 35px;
@@ -229,6 +182,22 @@ body {
     border-color: black;
     cursor: pointer;
     box-shadow: 3px 4px 3px black;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+#btn1:hover,
+.commands:hover {
+    background-color: rgb(255, 255, 200);
+    /* Leve alteração de cor ao passar o mouse */
+    transform: scale(1.05);
+    /* Efeito de expansão ao passar o mouse */
+}
+
+#pokemon_list::-webkit-scrollbar-thumb,
+#pokemon_list_habitat::-webkit-scrollbar-thumb,
+#pokemon_name_list::-webkit-scrollbar-thumb {
+    background-color: rgb(53, 151, 231);
+    border-radius: 10px;
 }
 
 @media (max-width: 600px) {
@@ -255,97 +224,4 @@ body {
         padding: 5px 8px;
         font-size: 13px;
     }
-}
-
-/* Botão */
-#btn1,
-.commands {
-    transition: background-color 0.3s ease, transform 0.2s ease;
-    /* Animação suave */
-}
-
-#btn1:hover,
-.commands:hover {
-    background-color: rgb(255, 255, 200);
-    /* Leve alteração de cor ao passar o mouse */
-    transform: scale(1.05);
-    /* Efeito de expansão ao passar o mouse */
-}
-
-#container_pokemon_habitat {
-    max-height: 500px;
-    overflow-y: auto;
-    width: 210px;
-    background-color: rgb(53, 151, 231);
-    border-radius: 10px;
-    box-shadow: 6px 8px 2px black;
-    margin: 20px 10px 10px 155px;
-    padding: 1px;
-    position: relative;
-}
-
-#container_pokemon_habitat h2 {
-    text-align: center;
-    font-size: 16px;
-    color: black;
-    font-style: oblique;
-    font-weight: 700;
-    background-color: rgb(247, 228, 125);
-    border-radius: 10px;
-    padding: 5px;
-    margin-top: 15px;
-    margin-left: 10px;
-    margin-right: 10px;
-}
-
-#pokemon_list_habitat {
-    max-height: 300px;
-    overflow-y: scroll;
-    padding: 15px;
-    margin: 5px;
-    list-style-type: none;
-}
-
-#pokemon_list_habitat li {
-    padding: 8px;
-    background-color: white;
-    margin: 5px 0 0 0;
-    border-radius: 10px;
-    box-shadow: 3px 3px 1px black;
-    scrollbar-width: none;
-    cursor: pointer;
-}
-
-#pokemon_list_habitat::-webkit-scrollbar {
-    display: none;
-    /* Chrome, Safari e outros navegadores baseados em WebKit */
-}
-
-
-/* Itens da lista */
-#pokemon_list li,
-#pokemon_list_habitat,
-#pokemon_name_list li {
-    transition: box-shadow 0.3s ease, transform 0.2s ease;
-}
-
-#pokemon_list li:hover,
-#pokemon_list_habitat,
-#pokemon_name_list li:hover {
-    box-shadow: 5px 5px 5px black;
-    transform: scale(1.02);
-    /* Pequeno aumento para dar destaque */
-}
-
-#pokemon_list::-webkit-scrollbar,
-#pokemon_list_habitat::-webkit-scrollbar,
-#pokemon_name_list::-webkit-scrollbar {
-    width: 6px;
-}
-
-#pokemon_list::-webkit-scrollbar-thumb,
-#pokemon_list_habitat::-webkit-scrollbar-thumb,
-#pokemon_name_list::-webkit-scrollbar-thumb {
-    background-color: rgb(53, 151, 231);
-    border-radius: 10px;
 }

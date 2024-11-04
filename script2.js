@@ -289,7 +289,7 @@ function loadHabitat(habitat_name_id) {
             id_habitat = data['id'];
             console.log(id_habitat);
 
-            document.getElementById('lista_habitat').innerHTML = "Pokémons do habitat: " + data['name'];
+            document.getElementById('lista_habitat').innerHTML = "Pokémons habitat: " + data['name'];
 
             data.pokemon_species.forEach((pokemonObj) => {
                 const li = document.createElement("li");
